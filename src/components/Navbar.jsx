@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiMenu } from "react-icons/hi";
 import { FaPlus } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
-import SideBar from './SideBar';
+import SideBar from '../SideBar';
 import axios from 'axios';
 import { useSubmit } from 'react-router-dom';
 
