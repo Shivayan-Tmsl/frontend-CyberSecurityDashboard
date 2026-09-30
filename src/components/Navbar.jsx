@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiMenu } from "react-icons/hi";
 import { FaPlus } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
-import SideBar from '../SideBar';
+import Sidebar from "./Sidebar";
 import axios from 'axios';
 import { useSubmit } from 'react-router-dom';
 
@@ -152,7 +152,7 @@ const Navbar = () => {
       {/* Mobile Side Menu: Changed to absolute overlay so it doesn't physically disrupt the top navbar layout spacing */}
       {isMenuOpen && (
         <div className='lg:hidden absolute top-full left-3 w-2/3 bg-white shadow-xl rounded-xl p-2 border border-gray-100 mt-2 transition-all'>
-          <SideMenu />
+          <Sidebar />
         </div>
       )}
 
