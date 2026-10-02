@@ -1,5 +1,5 @@
 import React from 'react';
-import SideBar from '../components/Sidebar';
+import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -287,7 +287,7 @@ const Dashboard = () => {
 
         {/* Sidebar */}
         <div className='w-1/5 fixed top-[60px] left-0 h-[calc(100vh-60px)] bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] shadow-[0_8px_20px_rgba(0,0,0,0.5)] mt-0.5 rounded-xl lg:block hidden'>
-          <SideBar />
+          <Sidebar />
         </div>
 
         {/* Main Content Wrapper */}

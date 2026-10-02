@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HiMenu } from "react-icons/hi";
 import { FaPlus, FaTimes } from "react-icons/fa";
-import SideBar from './SideBar';
+import Sidebar from './Sidebar';
 import axios from 'axios';
 
 const Navbar = () => {
@@ -186,7 +186,7 @@ const Navbar = () => {
       {/* Mobile Side Menu */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-full left-3 w-2/3 bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] shadow-[0_8px_20px_rgba(0,0,0,0.5)]  rounded-xl p-2  mt-2 transition-all">
-          <SideBar />
+          <Sidebar />
         </div>
       )}
 
