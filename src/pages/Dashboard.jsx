@@ -374,51 +374,45 @@ const Dashboard = () => {
     Recent Attacks
   </p>
 
-  <div className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10">
-
+  <div
+    className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10
+               [&::-webkit-scrollbar]:h-2
+               [&::-webkit-scrollbar-track]:bg-[#0b1025]
+               [&::-webkit-scrollbar-thumb]:bg-[#374151]
+               [&::-webkit-scrollbar-thumb]:rounded-full
+               [&::-webkit-scrollbar-thumb:hover]:bg-[#4b5563]"
+  >
     <div className="min-w-[600px] bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl">
 
       {last5Attacks.length === 0 ? (
-
         <p className="p-4 text-white">
           No recent attacks.
         </p>
-
       ) : (
-
         <table className="w-full text-left">
-
           <thead className="border-b border-blue-200/10">
             <tr>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Attack Type
               </th>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Time
               </th>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 IP Address
               </th>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Severity
               </th>
-
             </tr>
           </thead>
 
           <tbody>
-
             {last5Attacks.map((item, index) => (
-
               <tr
                 key={index}
                 className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
               >
-
                 <td className="px-4 py-4 font-bold text-white whitespace-nowrap">
                   {item.type}
                 </td>
@@ -444,21 +438,14 @@ const Dashboard = () => {
                     {item.severity}
                   </span>
                 </td>
-
               </tr>
-
             ))}
-
           </tbody>
-
         </table>
-
       )}
 
     </div>
-
   </div>
-
 </div>
 
             {/* Attacks over time */}
@@ -484,47 +471,42 @@ const Dashboard = () => {
     Recent Alerts
   </p>
 
-  <div className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10">
-
+  <div
+    className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10
+               [&::-webkit-scrollbar]:h-2
+               [&::-webkit-scrollbar-track]:bg-[#0b1025]
+               [&::-webkit-scrollbar-thumb]:bg-[#374151]
+               [&::-webkit-scrollbar-thumb]:rounded-full
+               [&::-webkit-scrollbar-thumb:hover]:bg-[#4b5563]"
+  >
     <div className="min-w-[500px] bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl">
 
       {last5Alerts.length === 0 ? (
-
         <p className="p-4 text-white">
           No recent alerts.
         </p>
-
       ) : (
-
         <table className="w-full text-left">
-
           <thead className="border-b border-blue-200/10">
             <tr>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Alert
               </th>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Time
               </th>
-
               <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
                 Severity
               </th>
-
             </tr>
           </thead>
 
           <tbody>
-
             {last5Alerts.map((item, index) => (
-
               <tr
                 key={index}
                 className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
               >
-
                 <td className="px-4 py-4 font-bold text-white whitespace-nowrap">
                   {item.title}
                 </td>
@@ -546,21 +528,14 @@ const Dashboard = () => {
                     {item.severity}
                   </span>
                 </td>
-
               </tr>
-
             ))}
-
           </tbody>
-
         </table>
-
       )}
 
     </div>
-
   </div>
-
 </div>
 
             {/* Attack Type Distribution */}
