@@ -361,80 +361,105 @@ const Dashboard = () => {
           {/* Middle Section */}
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-7 mt-3 px-4 lg:px-6'>
 
-            {/* Recent Attacks */}
-            <div className='bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] border-2 border-yellow-800 shadow-[0_8px_20px_rgba(0,0,0,0.5)] p-12 rounded-xl flex flex-col aspect-sqaure
-          '>
-              <p className='text-lg font-bold text-white'>Recent Attacks</p>
+             {/* Recent Attacks */}
+<div className="bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328]
+                border-2 border-yellow-800
+                shadow-[0_8px_20px_rgba(0,0,0,0.5)]
+                p-4 sm:p-6 lg:p-12
+                rounded-xl
+                flex flex-col
+                min-w-0">
 
-             <div className="mt-4 overflow-hidden rounded-xl border border-blue-200/10 bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl shadow-[0_8px_25px_rgba(15,23,42,0.25)]">
+  <p className="text-lg font-bold text-white">
+    Recent Attacks
+  </p>
 
-  {last5Attacks.length === 0 ? (
-    <p className="p-4 text-white">No recent attacks.</p>
-  ) : (
-    <table className="w-full text-left">
-      <thead className="border-b border-blue-200/10">
-        <tr>
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Attack Type
-          </th>
+  <div className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10">
 
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Time
-          </th>
+    <div className="min-w-[600px] bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl">
 
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            IP Address
-          </th>
+      {last5Attacks.length === 0 ? (
 
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Severity
-          </th>
-        </tr>
-      </thead>
+        <p className="p-4 text-white">
+          No recent attacks.
+        </p>
 
-      <tbody>
-        {last5Attacks.map((item, index) => (
-          <tr
-            key={index}
-            className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
-          >
-            {/* Attack Type */}
-            <td className="px-4 py-4 font-bold text-white">
-              {item.type}
-            </td>
+      ) : (
 
-            {/* Time */}
-            <td className="px-4 py-4 text-gray-300">
-              {getTimeAgo(item.timestamp)}
-            </td>
+        <table className="w-full text-left">
 
-            {/* IP */}
-            <td className="px-4 py-4 font-mono text-gray-300">
-              {item.ip === "::1" ? "127.0.0.1" : item.ip}
-            </td>
+          <thead className="border-b border-blue-200/10">
+            <tr>
 
-            {/* Severity */}
-            <td className="px-4 py-4">
-              <span
-                className={`inline-block rounded-md px-2 py-1 text-xs font-bold text-white ${
-                  item.severity === "high"
-                    ? "bg-red-600"
-                    : item.severity === "medium"
-                    ? "bg-yellow-500"
-                    : "bg-green-500"
-                }`}
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Attack Type
+              </th>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Time
+              </th>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                IP Address
+              </th>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Severity
+              </th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            {last5Attacks.map((item, index) => (
+
+              <tr
+                key={index}
+                className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
               >
-                {item.severity}
-              </span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )}
+
+                <td className="px-4 py-4 font-bold text-white whitespace-nowrap">
+                  {item.type}
+                </td>
+
+                <td className="px-4 py-4 text-gray-300 whitespace-nowrap">
+                  {getTimeAgo(item.timestamp)}
+                </td>
+
+                <td className="px-4 py-4 font-mono text-gray-300 whitespace-nowrap">
+                  {item.ip === "::1" ? "127.0.0.1" : item.ip}
+                </td>
+
+                <td className="px-4 py-4 whitespace-nowrap">
+                  <span
+                    className={`inline-block rounded-md px-2 py-1 text-xs font-bold text-white ${
+                      item.severity === "high"
+                        ? "bg-red-600"
+                        : item.severity === "medium"
+                        ? "bg-yellow-500"
+                        : "bg-green-500"
+                    }`}
+                  >
+                    {item.severity}
+                  </span>
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      )}
+
+    </div>
+
+  </div>
 
 </div>
-            </div>
 
             {/* Attacks over time */}
             <div className='bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] p-12 rounded-xl border-2 border-yellow-800 flex flex-col aspect-square shadow-[0_8px_20px_rgba(0,0,0,0.5)]'>
@@ -446,71 +471,97 @@ const Dashboard = () => {
               
             </div>
 
-            {/* Alerts */}
-            <div className='bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] p-12 rounded-xl border-2 border-yellow-800 flex flex-col aspect-sqaure shadow-[0_8px_20px_rgba(0,0,0,0.5)]
-          '>
-              <p className='text-lg font-bold text-white'>Recent Alerts</p>
+            {/* Recent Alerts */}
+<div className="bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328]
+                p-4 sm:p-6 lg:p-12
+                rounded-xl
+                border-2 border-yellow-800
+                flex flex-col
+                min-w-0
+                shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
 
-              <div className="mt-4 overflow-hidden rounded-xl border border-blue-200/10 bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl shadow-[0_8px_25px_rgba(15,23,42,0.25)]">
+  <p className="text-lg font-bold text-white">
+    Recent Alerts
+  </p>
 
-  {last5Alerts.length === 0 ? (
-    <p className="p-4 text-white">No recent alerts.</p>
-  ) : (
-    <table className="w-full text-left">
-      <thead className="border-b border-blue-200/10">
-        <tr>
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Alert
-          </th>
+  <div className="mt-4 w-full overflow-x-auto rounded-xl border border-blue-200/10">
 
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Time
-          </th>
+    <div className="min-w-[500px] bg-gradient-to-br from-indigo-950/80 via-[#111936]/80 to-[#0b1025]/90 backdrop-blur-xl">
 
-          <th className="px-4 py-3 text-sm font-semibold text-gray-400">
-            Severity
-          </th>
-        </tr>
-      </thead>
+      {last5Alerts.length === 0 ? (
 
-      <tbody>
-        {last5Alerts.map((item, index) => (
-          <tr
-            key={index}
-            className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
-          >
-            {/* Alert Title */}
-            <td className="px-4 py-4 font-bold text-white">
-              {item.title}
-            </td>
+        <p className="p-4 text-white">
+          No recent alerts.
+        </p>
 
-            {/* Time */}
-            <td className="px-4 py-4 text-gray-300">
-              {getTimeAgo(item.createdAt)}
-            </td>
+      ) : (
 
-            {/* Severity */}
-            <td className="px-4 py-4">
-              <span
-                className={`inline-block rounded-md px-2 py-1 text-xs font-bold text-white ${
-                  item.severity === "high"
-                    ? "bg-red-600"
-                    : item.severity === "medium"
-                    ? "bg-yellow-500"
-                    : "bg-green-500"
-                }`}
+        <table className="w-full text-left">
+
+          <thead className="border-b border-blue-200/10">
+            <tr>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Alert
+              </th>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Time
+              </th>
+
+              <th className="px-4 py-3 text-sm font-semibold text-gray-400 whitespace-nowrap">
+                Severity
+              </th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            {last5Alerts.map((item, index) => (
+
+              <tr
+                key={index}
+                className="border-b border-blue-200/10 last:border-b-0 transition-colors hover:bg-blue-500/5"
               >
-                {item.severity}
-              </span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )}
+
+                <td className="px-4 py-4 font-bold text-white whitespace-nowrap">
+                  {item.title}
+                </td>
+
+                <td className="px-4 py-4 text-gray-300 whitespace-nowrap">
+                  {getTimeAgo(item.createdAt)}
+                </td>
+
+                <td className="px-4 py-4 whitespace-nowrap">
+                  <span
+                    className={`inline-block rounded-md px-2 py-1 text-xs font-bold text-white ${
+                      item.severity === "high"
+                        ? "bg-red-600"
+                        : item.severity === "medium"
+                        ? "bg-yellow-500"
+                        : "bg-green-500"
+                    }`}
+                  >
+                    {item.severity}
+                  </span>
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      )}
+
+    </div>
+
+  </div>
 
 </div>
-            </div>
 
             {/* Attack Type Distribution */}
             <div className='bg-gradient-to-br from-[#111a35] via-[#10172d] to-[#0c1328] border-2 border-yellow-800 shadow-[0_8px_20px_rgba(0,0,0,0.5)] p-12 rounded-xl flex flex-col aspect-square'>
